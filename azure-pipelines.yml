@@ -23,19 +23,13 @@ steps:
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
-
-# Node.js with React
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    appType: 'webApp'
+    azureSubscription: 'Azure for Students Starter (efd75f38-514f-4465-892f-a99f48dbd70d)'
+    appType: 'webAppLinux'
     WebAppName: 'NarfoFrontend'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-# Build a Node.js project that uses React.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
-
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Azure for Students Starter (efd75f38-514f-4465-892f-a99f48dbd70d)'
