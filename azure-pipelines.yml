@@ -23,20 +23,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
 
-pool:
-  name: Hosted Ubuntu 1604
-steps:
-- task: NodeTool@0
-  displayName: 'Use Node 11.x'
-  inputs:
-    versionSpec: 11.x
-    checkLatest: true
-
-- task: Npm@1
-  displayName: 'npm install'
-  inputs:
-    verbose: false
-
 - task: Npm@1
   displayName: 'npm run build'
   inputs:
