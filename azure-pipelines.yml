@@ -22,15 +22,6 @@ steps:
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
-
-- task: Npm@1
-  displayName: 'npm run build'
-  inputs:
-    command: custom
-    verbose: false
-    customCommand: 'run build  '
-
-- task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
     PathtoPublish: build
