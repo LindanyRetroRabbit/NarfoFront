@@ -1,3 +1,8 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
 trigger:
 - Dev
 
@@ -5,14 +10,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- task: AzureCLI@1
+- task: NodeTool@0
   inputs:
-    azureSubscription: 'Azure for Students Starter(efd75f38-514f-4465-892f-a99f48dbd70d)'
-    scriptLocation: 'scriptPath'
-    scriptPath: 
-    addSpnToEnvironment: true
-    useGlobalConfig: true
-    workingDirectory: 'master'
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
@@ -23,16 +22,3 @@ steps:
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Azure for Students Starter (efd75f38-514f-4465-892f-a99f48dbd70d)'
-    appType: 'webAppLinux'
-    WebAppName: 'NarfoFrontend'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'Azure for Students Starter (efd75f38-514f-4465-892f-a99f48dbd70d)'
-    appType: 'webAppLinux'
-    appName: 'NarfoFrontend'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
