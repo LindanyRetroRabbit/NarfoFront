@@ -34,9 +34,3 @@ steps:
   displayName: 'Publish Artifact: drop'
   inputs:
     PathtoPublish: build
-
-steps:
-- task: Npm@1
-  displayName: 'npm install'
-  inputs:
-    verbose: false
