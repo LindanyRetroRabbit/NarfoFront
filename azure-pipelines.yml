@@ -5,8 +5,6 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- task: NodeTool@0
-  inputs:
 - task: AzureCLI@1
   inputs:
     azureSubscription: 'Azure for Students Starter(efd75f38-514f-4465-892f-a99f48dbd70d)'
